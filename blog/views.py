@@ -21,10 +21,10 @@ def api_root(request, format=None):
     return Response({
         'list/': reverse('strings_list', request=request, format=format),
         'create/': reverse('strings_create', request=request, format=format),
-        'get/': 'http://127.0.0.1:8000/api/get/1/',
-        'update/': 'http://127.0.0.1:8000/api/update/1/',
-        'delete/': 'http://127.0.0.1:8000/api/delete/1/',
-        'string_operations/': 'http://127.0.0.1:8000/api/string_operations/1/',
+        'get/': 'https://string-manipulation-service.herokuapp.com/api/get/4/',
+        'update/': 'https://string-manipulation-service.herokuapp.com/api/update/4/',
+        'delete/': 'https://string-manipulation-service.herokuapp.com/api/delete/4/',
+        'string_operations/': 'https://string-manipulation-service.herokuapp.com/api/string_operations/4/',
     })
 
 
