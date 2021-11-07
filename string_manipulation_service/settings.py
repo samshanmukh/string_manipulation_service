@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-df$mu02m@q96!c#94du(clb93=dvotn$s8w^nz9%(3qa5ngs6c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://string-manipulation-service.herokuapp.com']
+ALLOWED_HOSTS = ['string-manipulation-service.herokuapp.com']
 
 
 # Application definition
