@@ -60,13 +60,23 @@ class DeleteStringsAPIView(DestroyAPIView):
 
 
 class StringOperationsAPIView(APIView):
+    def get_object(self, id):
+        '''
+        Helper method to get the object with given id
+        '''
+        try:
+            return Strings.objects.get(id=id)
+        except Strings.DoesNotExist:
+            return None
+
     def put(self, request, *args, **kwargs):
         '''
-        Updates the todo item with given todo_id if exists
+        Updates the string item with given id if exists
         '''
 
         id = kwargs['id']
-        string_instance = Strings.objects.filter(id = id).first()
+        # string_instance = Strings.objects.filter(id = id).first()
+        string_instance = self.get_object(id)
         if not string_instance:
             return Response(
                 {"res": "Object with id does not exists"}, 
@@ -74,8 +84,14 @@ class StringOperationsAPIView(APIView):
             )
         existingData = StringsSerializer(instance=string_instance).data
 
-        # Input quqery
+        # Options - sort, reverse, reverse_word, flip
+        # Request body
         content = request.body.decode('UTF-8')
+        if not content:
+            return Response(
+                {"res": "Empty request object"}, 
+                status=status.HTTP_400_BAD_REQUEST
+            )
 
         # String operations/manipulations
         if(content == 'sort'):

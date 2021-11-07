@@ -21,5 +21,5 @@ urlpatterns = [
     # path('admin/', admin.site.urls),
     # path('blog/', include('blog.urls')),
     path('api/', include('blog.urls')),
-    # re_path(r'^.*$', RedirectView.as_view(url='/api/', permanent=False)),
+    re_path(r'^.*$', RedirectView.as_view(url='/api/', permanent=False)),
 ]
